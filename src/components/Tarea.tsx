@@ -42,7 +42,7 @@ export const Tarea = ({ tarea, onToggleCompletada, onEliminar, onEditar }: Tarea
   };
 
   return (
-    <div className="flex flex-col p-4 bg-neutral-800 w-full rounded-xl shadow mb-4">
+    <div className="flex flex-col p-4 dark:bg-neutral-800 bg-white w-full rounded-xl shadow mb-4">
       <div className="flex items-center w-full justify-between">
         <div className="flex items-center w-full space-x-4">
           <input
@@ -57,16 +57,22 @@ export const Tarea = ({ tarea, onToggleCompletada, onEliminar, onEditar }: Tarea
                 type="text"
                 value={nuevoTitulo}
                 onChange={(e) => setNuevoTitulo(e.target.value)}
-                className="w-full px-2 py-1 rounded-xl focus:outline-none bg-neutral-700 text-white"
+                className="w-full px-2 py-1 rounded-xl focus:outline-none dark:bg-neutral-700 bg-neutral-200 dark:text-white"
                 required
               />
               <input
                 type="text"
                 value={nuevaEtiqueta}
                 onChange={(e) => setNuevaEtiqueta(e.target.value)}
-                className="w-full px-2 py-1 rounded-xl focus:outline-none bg-neutral-700 text-white"
+                className="w-full px-2 py-1 rounded-xl focus:outline-none dark:bg-neutral-700 bg-neutral-200 dark:text-white"
                 placeholder="Etiqueta"
               />
+              <input
+                type='date'
+                value={nuevaFecha.toString().slice(0, 10)}
+                onChange={(e) => setNuevaFecha(new Date(e.target.value))}
+                className="w-full px-4 py-2 rounded-xl dark:bg-neutral-700 bg-neutral-200 dark:text-white border-none focus:outline-none"
+                />
               {/* <select
                 value={nuevaPrioridad}
                 onChange={(e) => setNuevaPrioridad(e.target.value as 'baja' | 'media' | 'alta')}
@@ -79,10 +85,10 @@ export const Tarea = ({ tarea, onToggleCompletada, onEliminar, onEditar }: Tarea
               <div className="flex w-full">
               <button 
                     type="button" 
-                className={`px-4 py-2 w-60 rounded-bl-xl rounded-tl-xl text-white border-2 ${
+                className={`px-4 py-2 w-60 rounded-bl-xl rounded-tl-xl dark:text-white border-2 ${
                     nuevaPrioridad === 'baja' 
-                    ? 'bg-green-600 border-green-400 font-bold shadow-lg' 
-                    : 'bg-neutral-700 border-transparent hover:bg-neutral-600'
+                    ? 'bg-green-600 border-green-400 text-white font-bold shadow-lg' 
+                    : 'dark:bg-neutral-700 bg-zinc-200 hover:bg-neutral-300 border-transparent dark:hover:bg-neutral-600'
                 } transition-all duration-200 cursor-pointer`}
                 onClick={() => setNuevaPrioridad('baja')}    
                 >
@@ -90,10 +96,10 @@ export const Tarea = ({ tarea, onToggleCompletada, onEliminar, onEditar }: Tarea
                 </button>
                 <button 
                     type="button" 
-                    className={`px-4 py-2 w-60 text-white border-2 ${
+                    className={`px-4 py-2 w-60 dark:text-white border-2 ${
                         nuevaPrioridad === 'media' 
-                        ? 'bg-yellow-600 border-yellow-400 font-bold shadow-lg' 
-                        : 'bg-neutral-700 border-transparent hover:bg-neutral-600'
+                        ? 'bg-yellow-600 border-yellow-400 text-white font-bold shadow-lg' 
+                        : 'dark:bg-neutral-700 bg-zinc-200 hover:bg-neutral-300 border-transparent dark:hover:bg-neutral-600'
                     } transition-all duration-200 cursor-pointer`}
                     onClick={() => setNuevaPrioridad('media')}
                 >
@@ -101,10 +107,10 @@ export const Tarea = ({ tarea, onToggleCompletada, onEliminar, onEditar }: Tarea
                 </button>
                 <button 
                     type="button" 
-                    className={`px-4 py-2 w-60 rounded-br-xl rounded-tr-xl text-white border-2 ${
+                    className={`px-4 py-2 w-60 rounded-br-xl rounded-tr-xl dark:text-white border-2 ${
                         nuevaPrioridad === 'alta' 
-                        ? 'bg-red-600 border-red-400 font-bold shadow-lg' 
-                        : 'bg-neutral-700 border-transparent hover:bg-neutral-600'
+                        ? 'bg-red-600 border-red-400 text-white font-bold shadow-lg' 
+                        : 'dark:bg-neutral-700 bg-zinc-200 hover:bg-neutral-300 border-transparent dark:hover:bg-neutral-600'
                     } transition-all duration-200 cursor-pointer`}
                     onClick={() => setNuevaPrioridad('alta')}
                 >
@@ -114,21 +120,15 @@ export const Tarea = ({ tarea, onToggleCompletada, onEliminar, onEditar }: Tarea
               <textarea
                 value={nuevaDescripcion}
                 onChange={(e) => setNuevaDescripcion(e.target.value)}
-                className="w-full px-2 py-1 rounded-xl focus:outline-none bg-neutral-700 text-white"
+                className="w-full px-2 py-1 rounded-xl focus:outline-none dark:bg-neutral-700 bg-neutral-200 dark:text-white"
                 rows={3}
                 placeholder="Descripción"
               />
-              <input
-                type='date'
-                value={nuevaFecha.toString().slice(0, 10)}
-                onChange={(e) => setNuevaFecha(new Date(e.target.value))}
-                className="w-full px-4 py-2 rounded-xl bg-neutral-800 text-white border-none focus:outline-none"
-                />
               <div className="flex justify-end space-x-2">
                 <button
                   type="button"
                   onClick={() => setEditando(false)}
-                  className="px-3 py-1 text-sm cursor-pointer text-white"
+                  className="px-3 py-1 text-sm cursor-pointer dark:text-white"
                 >
                   Cancelar
                 </button>
@@ -143,7 +143,7 @@ export const Tarea = ({ tarea, onToggleCompletada, onEliminar, onEditar }: Tarea
           ) : (
             <div className="flex-1">
               <div className="flex items-center space-x-2">
-                <span className={`${tarea.completada ? 'line-through text-neutral-400 max-w-[40%]' : 'text-white font-medium max-w-[40%]'}`}>
+                <span className={`${tarea.completada ? 'line-through text-neutral-400 md:max-w-[80%] max-w-[60%]' : 'dark:text-white font-medium md:max-w-[80%] max-w-[60%]'}`}>
                   {tarea.titulo}
                 </span>
                 {tarea.etiqueta && (
@@ -151,13 +151,13 @@ export const Tarea = ({ tarea, onToggleCompletada, onEliminar, onEditar }: Tarea
                     #{tarea.etiqueta}
                   </span>
                 )}
-                <span className={`px-2 py-1 text-xs rounded-full ${getColorPrioridad(tarea.prioridad)}`}>
-                  {tarea.prioridad}
-                </span>
               </div>
               {tarea.descripcion && (
-                <p className="mt-1 text-sm text-white">{tarea.descripcion}</p>
+                <p className="mt-1 mb-3 max-w-[90%] text-sm dark:text-zinc-300 text-zinc-500">{tarea.descripcion}</p>
               )}
+              <span className={`px-2 py-0.5 text-xs rounded-full ${getColorPrioridad(tarea.prioridad)}`}>
+                {tarea.fecha.toString().slice(0, 10)}
+              </span>
             </div>
           )}
         </div>

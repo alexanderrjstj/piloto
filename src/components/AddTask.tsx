@@ -80,42 +80,42 @@ export const AddTask = ({ onAgregarTarea }: AddTaskProps) => {
       </div>
 
       {/* Modal (diálogo) que se abrirá */}
-      <dialog id='Form' className='m-auto bg-zinc-700 rounded-2xl p-10'>
+      <dialog id='Form' className='m-auto dark:bg-zinc-700 bg-zinc-100 rounded-2xl p-10'>
         <form onSubmit={handleSubmit}>
-          <h3 className='text-white uppercase text-3xl text-center mb-8'>Nueva tarea</h3>
+          <h3 className='dark:text-white uppercase text-3xl text-center mb-8'>Nueva tarea</h3>
           <div className="flex space-x-4 flex-col">
             <div className="flex flex-col space-y-2 mb-6 mr-0">
-                <label className="text-lg text-white font-bold" htmlFor="titulo">Título</label>
+                <label className="text-lg dark:text-white font-bold" htmlFor="titulo">Título</label>
                 <input
                 type="text"
                 value={titulo}
                 onChange={(e) => setTitulo(e.target.value)}
                 placeholder="Título de la tarea..."
-                className="flex-1 px-4 py-2 rounded-xl bg-neutral-800 text-white border-none focus:outline-none"
+                className="flex-1 px-4 py-2 rounded-xl dark:bg-neutral-800 bg-neutral-200 dark:text-white border-none focus:outline-none"
                 required
                 />
             </div>
             <div className="flex flex-col space-y-2 mb-6 mr-0">
-                <label className="text-lg text-white font-bold" htmlFor="descripcion">Descripción</label>
+                <label className="text-lg dark:text-white font-bold" htmlFor="descripcion">Descripción</label>
                 <textarea
                 value={descripcion}
                 onChange={(e) => setDescripcion(e.target.value)}
                 placeholder="Descripción de la tarea..."
-                className="w-full px-4 py-2 rounded-xl bg-neutral-800 text-white border-none focus:outline-none"
+                className="w-full px-4 py-2 rounded-xl dark:bg-neutral-800 bg-neutral-200 dark:text-white border-none focus:outline-none"
                 rows={3}
                 />
             </div>
             <div className="flex flex-col space-y-2 mb-6 mr-0">
-                <label className="text-lg text-white font-bold" htmlFor="descripcion">Fecha límite</label>
+                <label className="text-lg dark:text-white font-bold" htmlFor="descripcion">Fecha límite</label>
                 <input
                 type='date'
                 value={fecha.toISOString().slice(0, 10)}
                 onChange={(e) => setFecha(new Date(e.target.value))}
-                className="w-full px-4 py-2 rounded-xl bg-neutral-800 text-white border-none focus:outline-none"
+                className="w-full px-4 py-2 rounded-xl dark:bg-neutral-800 bg-neutral-200 dark:text-white border-none focus:outline-none"
                 />
             </div>
             <div className="flex flex-col space-y-2 mb-6 mr-0">
-                <label className="text-lg text-white font-bold" htmlFor="prioridad">Prioridad</label>
+                <label className="text-lg dark:text-white font-bold" htmlFor="prioridad">Prioridad</label>
                 {/* <select
                     value={prioridad}
                     onChange={(e) => setPrioridad(e.target.value as 'baja' | 'media' | 'alta')}
@@ -128,10 +128,10 @@ export const AddTask = ({ onAgregarTarea }: AddTaskProps) => {
                 <div className="flex w-full">
                     <button 
                         type="button" 
-                    className={`px-4 py-2 w-60 rounded-bl-xl rounded-tl-xl text-white border-2 ${
+                    className={`px-4 py-2 w-60 rounded-bl-xl rounded-tl-xl dark:text-white border-2 ${
                         prioridad === 'baja' 
-                        ? 'bg-green-600 border-green-400 font-bold shadow-lg' 
-                        : 'bg-neutral-800 border-transparent hover:bg-neutral-700'
+                        ? 'bg-green-600 border-green-400 text-white font-bold shadow-lg' 
+                        : 'dark:bg-zinc-800 bg-zinc-200 hover:bg-neutral-300 border-transparent dark:hover:bg-neutral-600'
                     } transition-all duration-200 cursor-pointer`}
                     onClick={() => setPrioridad('baja')}    
                     >
@@ -139,10 +139,10 @@ export const AddTask = ({ onAgregarTarea }: AddTaskProps) => {
                     </button>
                     <button 
                         type="button" 
-                        className={`px-4 py-2 w-60 text-white border-2 ${
+                        className={`px-4 py-2 w-60 dark:text-white border-2 ${
                             prioridad === 'media' 
-                            ? 'bg-yellow-600 border-yellow-400 font-bold shadow-lg' 
-                            : 'bg-neutral-800 border-transparent hover:bg-neutral-700'
+                            ? 'bg-yellow-600 border-yellow-400 text-white font-bold shadow-lg' 
+                            : 'dark:bg-zinc-800 bg-zinc-200 hover:bg-neutral-300 border-transparent dark:hover:bg-neutral-600'
                         } transition-all duration-200 cursor-pointer`}
                         onClick={() => setPrioridad('media')}
                     >
@@ -150,10 +150,10 @@ export const AddTask = ({ onAgregarTarea }: AddTaskProps) => {
                     </button>
                     <button 
                         type="button" 
-                        className={`px-4 py-2 w-60 rounded-br-xl rounded-tr-xl text-white border-2 ${
+                        className={`px-4 py-2 w-60 rounded-br-xl rounded-tr-xl dark:text-white border-2 ${
                             prioridad === 'alta' 
-                            ? 'bg-red-600 border-red-400 font-bold shadow-lg' 
-                            : 'bg-neutral-800 border-transparent hover:bg-neutral-700'
+                            ? 'bg-red-600 border-red-400 text-white font-bold shadow-lg' 
+                            : 'dark:bg-zinc-800 bg-zinc-200 hover:bg-neutral-300 border-transparent dark:hover:bg-neutral-600'
                         } transition-all duration-200 cursor-pointer`}
                         onClick={() => setPrioridad('alta')}
                     >
@@ -162,13 +162,13 @@ export const AddTask = ({ onAgregarTarea }: AddTaskProps) => {
                 </div>
                 <div className="w-full">
                     <div className="flex w-full flex-col space-y-2">
-                        <label className="text-lg text-white font-bold" htmlFor="etiqueta">Etiqueta</label>
+                        <label className="text-lg dark:text-white font-bold" htmlFor="etiqueta">Etiqueta</label>
                         <input
                         type="text"
                         value={etiqueta}
                         onChange={(e) => setEtiqueta(e.target.value)}
                         placeholder="Etiqueta..."
-                        className="flex-1 px-4 py-2 w-full rounded-xl bg-neutral-800 text-white border-none focus:outline-none"
+                        className="flex-1 px-4 py-2 w-full rounded-xl dark:bg-neutral-800 bg-neutral-200 dark:text-white border-none focus:outline-none"
                         />
                     </div>
                 </div>

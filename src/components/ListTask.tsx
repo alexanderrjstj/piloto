@@ -39,8 +39,8 @@ export const ListTask = ({ tareas, onAgregarTarea, onEliminarTarea }: ListTaskPr
     const tareasMedia = tareas.filter(t => t.prioridad === 'media');
     const tareasAlta = tareas.filter(t => t.prioridad === 'alta');
   return (
-    <div className="flex flex-col md:flex-row mt-12 px-7 gap-5 mx-auto">
-      <div className="bg-green-600 rounded-2xl md:max-w-[42%] p-5 h-full">
+    <div className="flex flex-col md:flex-row md:justify-between mt-12 gap-5 px-7">
+      <div className="bg-green-600 rounded-2xl md:w-[33%] p-4 h-full">
         <h2 className='text-white font-bold text-2xl uppercase mb-4'>Prioridad Baja</h2>
         {tareasBaja.length > 0 ? (
             tareasBaja.map((tarea) => (
@@ -56,7 +56,7 @@ export const ListTask = ({ tareas, onAgregarTarea, onEliminarTarea }: ListTaskPr
                 <p className='text-white text-lg'>Sin tareas...</p>
             )}
       </div>
-      <div className="bg-yellow-600 rounded-2xl w-full p-5 h-full">
+      <div className="bg-yellow-600 rounded-2xl md:w-[33%] p-4 h-full">
         <h2 className='text-white font-bold text-2xl uppercase mb-4'>Prioridad Media</h2>
         {tareasMedia.length > 0 ? (
             tareasMedia.map((tarea) => (
@@ -72,7 +72,7 @@ export const ListTask = ({ tareas, onAgregarTarea, onEliminarTarea }: ListTaskPr
                 <p className='text-white text-lg'>Sin tareas...</p>
             )}
       </div>
-      <div className="bg-red-600 rounded-2xl p-5 h-full">
+      <div className="bg-red-600 rounded-2xl md:w-[33%] p-4 h-full">
         <h2 className='text-white font-bold text-2xl uppercase mb-4'>Prioridad Alta</h2>
         {tareasAlta.length > 0 ? (
             tareasAlta.map((tarea) => (

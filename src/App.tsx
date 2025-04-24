@@ -37,7 +37,7 @@ function App() {
   return (
     <>
       <Header/>
-      <main className='bg-zinc-800 h-dvh pt-28'>
+      <main className='dark:bg-zinc-800 min-h-[100dvh] py-28'>
         <AddTask onAgregarTarea={agregarTarea}/>
         <ListTask tareas={tareas} onAgregarTarea={agregarTarea} onEliminarTarea={eliminarTarea} />
       </main>
