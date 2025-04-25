@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 
 // Define los posibles valores para el tema de la aplicación
 type Theme = "light" | "dark" | "auto";
