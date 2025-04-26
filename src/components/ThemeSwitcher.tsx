@@ -45,7 +45,7 @@ const themeOptions: {
         },
     ];
 
-//Comentario desde alexanderrjstj
+//Nuevo comentario hecho a través del usuario de tajamar
 export const ThemeSwitcher = () => {
     // Estado para controlar si el menú desplegable está abierto o cerrado
     const [open, setOpen] = useState(false);
